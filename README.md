@@ -195,7 +195,8 @@ Jika Anda ingin berkontribusi atau melaporkan bug:
 ## 📞 Kontak & Support
 
 - 💬 **Telegram**: [@Airlanggadev](https://t.me/airlanggaDev)
-- 🐙 **GitHub**: [Afprian](https://github.com/Afprian)
+- 🐙 **GitHub 1**: [Afprian](https://github.com/Afprian)
+- 🐙 **GitHub 2**: [SkynaCloud](https://github.com/SkynaCloud)
 
 ---
 
