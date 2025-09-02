@@ -19,152 +19,122 @@
 ====================================================
 */
 
-import Link from 'next/link'
-import { ArrowRight, Code, Zap, Heart } from 'lucide-react'
+import AirlanggaProjectCard from '@/components/AirlanggaProjectCard'
+import { Filter } from 'lucide-react'
 
-export default function HomePage() {
+type ProjectStatus = "Completed" | "In Progress" | "Coming Soon"
+type Project = {
+  id: number
+  title: string
+  description: string
+  image: string
+  category: string
+  technologies: string[]
+  demoUrl?: string
+  repoUrl?: string
+  status: ProjectStatus
+}
+
+export default function ProjectsPage() {
+  const AirlanggaProjects: Project[] = [
+    {
+      id: 1,
+      title: "Bot Whatsapp Ppob",
+      description: "Sistem bot WhatsApp untuk pembayaran PPOB (Topup, App Premium, Pulsa) dengan integrasi API payment gateway.",
+      image: "/images/project1.png",
+      category: "Full-Stack",
+      technologies: ["Node.js", "Express", "MongoDB", "WhatsApp API"],
+      demoUrl: "https://wa.me/6283865967193?text=menu",
+      status: "Completed"
+    },
+    {
+      id: 2,
+      title: "Website Skyna Shop",
+      description: "website e-commerce modern dengan fitur katalog produk, keranjang belanja, dan pembayaran online.",
+      image: "/images/project2.png",
+      category: "Frontend",
+      technologies: ["React", "Chart.js", "TailwindCSS", "REST API"],
+      demoUrl: "https://sky-shop.my.id",
+      status: "In Progress"
+    },
+    {
+      id: 3,
+      title: "Monitoring Server",
+      description: "Platform monitoring server real-time dengan dashboard interaktif dan notifikasi otomatis.",
+      image: "/images/project3.png",
+      category: "Full-Stack",
+      technologies: ["node.js", "Rest Api", "JavaScript", "Socket.io"],
+      demoUrl: "https://uptime.sky-shop.my.id",
+      status: "Completed"
+    },
+    {
+      id: 4,
+      title: "Panel Hosting",
+      description: "Website panel hosting untuk server game dengan fitur manajemen user, server, dan billing.",
+      image: "/images/project4.png",
+      category: "Frontend",
+      technologies: ["Laravel", "Bootstrap", "MySQL", "REST API"],
+      demoUrl: "https://hosting.sky-shop.my.id",
+      status: "Completed"
+    },
+    {
+      id: 5,
+      title: "Phpmyadmin",
+      description: "Website database management tool berbasis web untuk mengelola database MySQL dengan mudah.",
+      image: "/images/project5.png",
+      category: "Frontend",
+      technologies: ["Laravel", "Bootstrap", "MySQL", "HTML/CSS"],
+      demoUrl: "https://hosting.sky-shop.my.id/pma",
+      status: "Completed"
+    },
+    {
+      id: 6,
+      title: "Bot Dc Buy Hosting Auto",
+      description: "Sistem bot Discord untuk pembelian hosting otomatis dengan integrasi payment gateway.",
+      image: "/images/project6.png",
+      category: "Full-Stack",
+      technologies: ["Node.js", "Discord.js", "MongoDB", "Payment Gateway"],
+      demoUrl: "https://dsc.gg/skynacloud",
+      status: "Completed"
+    }
+  ]
+
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20 lg:py-32">
-        <div className="airlangga-container text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl lg:text-7xl font-bold mb-6">
-              <span className="text-gradient">Airlangga</span>
-            </h1>
-            
-            <p className="text-xl lg:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Membangun Solusi Digital Kreatif & Infrastruktur Jaringan Andal dengan Next.js, TypeScript, Tailwind CSS, dan Linux Server Automation
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-              <Link href="/about" className="airlangga-button-primary inline-flex items-center gap-2">
-                <Code size={20} />
-                Tentang Saya
-                <ArrowRight size={18} />
-              </Link>
-              
-              <Link href="/projects" className="airlangga-button-secondary inline-flex items-center gap-2">
-                <Zap size={20} />
-                Projek Saya
-              </Link>
-              
-              <Link href="/contact" className="airlangga-button-secondary inline-flex items-center gap-2">
-                <Heart size={20} />
-                Kontak
-              </Link>
-            </div>
-          </div>
-          
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-3xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">3+</div>
-              <div className="text-gray-600">Tahun Pengalaman</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-purple-600 mb-2">50+</div>
-              <div className="text-gray-600">Project Selesai</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-green-600 mb-2">99%</div>
-              <div className="text-gray-600">Kepuasan Client</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Tech Stack Preview */}
-      <section className="py-16 bg-white">
-        <div className="airlangga-container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Tech Stack & Expertise</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Membangun solusi digital yang scalable, otomatis, dan brutal efisien—dengan teknologi modern dan arsitektur backend yang tak kenal kompromi
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {[
-              { 
-                category: 'Frontend', 
-                techs: ['Next.js', 'React.js', 'TypeScript', 'Tailwind CSS'],
-                color: 'from-blue-500 to-cyan-500',
-                icon: '⚛️'
-              },
-              { 
-                category: 'Backend', 
-                techs: ['Node.js', 'Express.js', 'PostgreSQL', 'MongoDB'],
-                color: 'from-green-500 to-emerald-500',
-                icon: '🚀'
-              },
-              { 
-                category: 'Tools & DevOps', 
-                techs: ['Git', 'Docker', 'AWS', 'Vercel'],
-                color: 'from-purple-500 to-pink-500',
-                icon: '🛠️'
-              },
-              { 
-                category: 'Design & UI/UX', 
-                techs: ['Figma', 'Adobe XD', 'Framer Motion', 'GSAP'],
-                color: 'from-orange-500 to-red-500',
-                icon: '🎨'
-              }
-            ].map((stack) => (
-              <div key={stack.category} className="airlangga-card p-6 text-center group hover:scale-105 transition-all duration-300">
-                <div className={`w-16 h-16 bg-gradient-to-r ${stack.color} rounded-xl mx-auto mb-4 flex items-center justify-center text-2xl shadow-lg`}>
-                  {stack.icon}
-                </div>
-                <h3 className="font-bold text-lg text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                  {stack.category}
-                </h3>
-                <div className="space-y-1">
-                  {stack.techs.map((tech) => (
-                    <div key={tech} className="text-sm text-gray-600 bg-gray-50 px-2 py-1 rounded-md">
-                      {tech}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          {/* Additional Stats */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-blue-600 mb-1">16+</div>
-              <div className="text-gray-600 text-sm">Technologi</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-green-600 mb-1">100%</div>
-              <div className="text-gray-600 text-sm">JavaScript</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-purple-600 mb-1">24/7</div>
-              <div className="text-gray-600 text-sm">Support</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-orange-600 mb-1">Normal</div>
-              <div className="text-gray-600 text-sm">Delivery</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
-        <div className="airlangga-container text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Siap untuk Berkolaborasi?
-          </h2>
-          <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
-            Mari bangun solusi digital kreatif dan infrastruktur jaringan andal bersama-sama!
+    <div className="min-h-screen py-20">
+      <div className="airlangga-container">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl lg:text-5xl font-bold text-gradient mb-6">
+            Projek Saya
+          </h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Kumpulan projek web full-stack dan frontend yang saya bangun menggunakan teknologi modern seperti Next.js, TypeScript, Tailwind CSS, dan lainnya.
           </p>
-          <Link href="/contact" className="bg-white text-blue-600 hover:bg-gray-50 px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center gap-2">
-            Mulai Project <ArrowRight size={20} />
-          </Link>
         </div>
-      </section>
+
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {AirlanggaProjects.map((project) => (
+            <AirlanggaProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center airlangga-card p-8 bg-gradient-to-r from-blue-50 to-purple-50">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            Ingin Membangun Aplikasi Web Keren Seperti Ini?
+          </h2>
+          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            Saya siap membantu mewujudkan ide digital Anda menjadi kenyataan. Mari diskusikan project Anda dan ciptakan solusi web yang inovatif bersama saya!
+          </p>
+          <a 
+            href="/contact" 
+            className="airlangga-button-primary inline-block"
+          >
+            Mulai Diskusi Project
+          </a>
+        </div>
+      </div>
     </div>
   )
 }
